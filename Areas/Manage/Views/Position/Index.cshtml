@@ -1,0 +1,40 @@
+﻿@model List<Position>
+<div class="container">
+
+    @{
+        int count = 1;
+    }
+    <table class="table">
+        <a class="btn btn-primary" asp-action="Create">Create</a>
+
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Agent Count</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Agents.Count</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Update" asp-route-Id="@item.Id">Update</a>
+                        <a class="btn btn-primary" asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
+
+
+                    </td>
+
+                </tr>
+                count++;
+            }
+        </tbody>
+    </table>
+</div>

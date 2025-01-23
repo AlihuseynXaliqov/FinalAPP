@@ -1,0 +1,28 @@
+﻿@model LoginVm
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <h2>Login a account.</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="EmailOrUserName" class="form-control" autocomplete="username" aria-required="true" placeholder="name" />
+                    <label asp-for="EmailOrUserName">Email Or UserName</label>
+                    <span asp-validation-for="EmailOrUserName" class="text-danger"></span>
+                </div>
+
+                <
+                <div class="form-floating mb-3">
+                    <input asp-for=" Password" class="form-control" type="password" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for=" Password">Password</label>
+                    <span asp-validation-for=" Password" class="text-danger"></span>
+                </div>
+                
+                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
