@@ -37,8 +37,8 @@ namespace CakeFinalApp.Controllers
                 UserName = vm.UserName
             };
             var result = await userManager.CreateAsync(appUser, vm.Password);
-            await userManager.AddToRoleAsync(appUser,Roles.Admin.ToString());
-/*            await userManager.AddToRoleAsync(appUser, Roles.Member.ToString());*/
+            /*            await userManager.AddToRoleAsync(appUser, Roles.Admin.ToString());*/
+            await userManager.AddToRoleAsync(appUser, Roles.Member.ToString());
 
             if (result.Succeeded)
             {
@@ -56,9 +56,12 @@ namespace CakeFinalApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVm vm, string ReturnUrl)
+        public async Task<IActionResult> Login(LoginVm vm, string? ReturnUrl)
         {
-            if (!ModelState.IsValid) return View(vm);
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
             var newUser = await userManager.FindByNameAsync(vm.EmailOrUserName)
                 ?? await userManager.FindByEmailAsync(vm.EmailOrUserName);
             if (newUser == null)

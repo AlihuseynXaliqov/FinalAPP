@@ -4,13 +4,14 @@ using CakeFinalApp.Areas.Manage.ViewModels.Agent;
 using CakeFinalApp.DAL.Context;
 using CakeFinalApp.Helpers;
 using CakeFinalApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CakeFinalApp.Areas.Manage.Controllers
 {
     [Area("Manage")]
-
+    [Authorize(Roles ="Admin")]
     public class AgentController : Controller
     {
         private readonly AppDbContext dbContext;

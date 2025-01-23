@@ -83,7 +83,7 @@
                     <div class="dropdown-menu m-0">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a >@User.Identity.Name</a>
+                            <a>@User.Identity.Name</a>
                             <a class="btn btn-primary" asp-controller="Account" asp-action="SignOut" role="button">SignOut</a>
                         }
                         else

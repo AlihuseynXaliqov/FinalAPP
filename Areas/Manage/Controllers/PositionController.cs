@@ -3,13 +3,14 @@ using CakeFinalApp.Areas.Manage.Helpers.Exception;
 using CakeFinalApp.Areas.Manage.ViewModels.Position;
 using CakeFinalApp.DAL.Context;
 using CakeFinalApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CakeFinalApp.Areas.Manage.Controllers
 {
     [Area("Manage")]
-
+    [Authorize(Roles = "Admin")]
     public class PositionController : Controller
     {
         private readonly AppDbContext dbContext;
